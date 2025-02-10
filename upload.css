@@ -1,0 +1,85 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfaf5;
+    text-align: center;
+    background-color: rgb(249, 239, 215);
+}
+
+/* Upload Box Styling */
+.upload-box {
+    background-color: #eaf0ff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-area {
+    border: 2px dashed #4c66af;
+    padding: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-area:hover {
+    background-color: #dbe3ff;
+}
+
+.upload-icon img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.btn-upload {
+    background-color: #ff8000;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-upload:hover {
+    background-color: #ff6600;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    margin-top: 20px;
+}
+
+.btn-orange {
+    background-color: #ff8000;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-orange:hover {
+    background-color: #ff6600;
+}
+
+/* Back Button */
+.btn-back {
+    background-color: #0c82f7;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #369ef4;
+}

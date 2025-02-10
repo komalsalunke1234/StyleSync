@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login & Sign Up</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .login-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .illustration {
+            max-width: 100%;
+            height: 280px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .illustration:hover {
+            transform: scale(1.1);
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .social-login a {
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 18px;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 50%;
+            color: white;
+            width: 40px;
+            text-align: center;
+        }
+
+        .social-login a.facebook { background: #3b5998; }
+        .social-login a.twitter { background: #1da1f2; }
+        .social-login a.google { background: #db4437; }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .toggle-form a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="row login-container">
+                
+                <!-- Illustration -->
+                <div class="col-md-6 d-none d-md-block text-center">
+                    <img src="login.jpg" alt="Login Illustration" class="illustration">
+                </div>
+
+                <!-- Login Form -->
+                <div class="col-md-6">
+                    <div id="login-form">
+                        <h2 class="login-title text-center">Log In</h2>
+                        
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="email" placeholder="Enter your Email">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+
+                            <button type="submit" class="btn login-btn" id="login">Log in</button>
+                        </form>
+
+                        <p class="text-center mt-3">Or login with</p>
+                        <div class="text-center social-login">
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="google"><i class="bi bi-google"></i></a>
+                        </div>
+
+                        <p class="toggle-form">Don't have an account? <a onclick="toggleForm()">Sign Up</a></p>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <div id="signup-form" class="hidden">
+                        <h2 class="login-title text-center">Sign Up</h2>
+                        
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="username" placeholder="Enter your Username">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control"id="password" placeholder="Enter your password">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn login-btn" id="signup">Sign Up</button>
+                        </form>
+
+                        <p class="toggle-form">Already have an account? <a onclick="toggleForm()">Log In</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons & Scripts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function toggleForm() {
+        document.getElementById("login-form").classList.toggle("hidden");
+        document.getElementById("signup-form").classList.toggle("hidden");
+    }
+</script>
+
+
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+    import { getDatabase,set,ref ,update} from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+    
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqrhl0QV4rFXHFN3OZrvzJoByAgcWw1cc",
+      authDomain: "authentication-app-5c9ea.firebaseapp.com",
+      databaseURL: "https://authentication-app-5c9ea-default-rtdb.firebaseio.com",
+      projectId: "authentication-app-5c9ea",
+      storageBucket: "authentication-app-5c9ea.firebasestorage.app",
+      messagingSenderId: "847616355466",
+      appId: "1:847616355466:web:3b481517c3db6761531173"
+    };
+  
+    // Initialize Firebase
+   // Firebase initialization
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+// Sign-up Function
+document.getElementById('signup').addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent form refresh
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var username = document.getElementById('username').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            
+            // Store user data in Firebase Realtime Database
+            set(ref(database, 'users/' + user.uid), {
+                username: username,
+                email: email,
+                created_at: new Date().toString()
+            });
+
+            alert('User created successfully!');
+        })
+        .catch((error) => {
+            alert(error.message); // Show Firebase error message
+        });
+});
+
+// Login Function
+document.getElementById('login').addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent form refresh
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            const dt = new Date().toString(); // Get current timestamp
+
+            // Update last login timestamp (Avoid overwriting username)
+            update(ref(database, 'users/' + user.uid), {
+                last_login: dt
+            });
+
+            alert('Login successful!');
+
+            // Redirect to another page after successful login
+            window.location.href = "i.html";
+        })
+        .catch((error) => {
+            alert(error.message); // Show Firebase error message
+        });
+});
+
+// Check Authentication State
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("User is signed in:", user.uid);
+    } else {
+        console.log("User is signed out.");
+    }
+});
+
+// Logout Function
+const logoutButton = document.getElementById('logout');
+
+if (logoutButton) {
+    logoutButton.addEventListener('click', (e) => {
+        signOut(auth).then(() => {
+            alert('User logged out.');
+            window.location.href = "index.html"; // Redirect after logout
+        }).catch((error) => {
+            alert(error.message);
+        });
+    });
+}
+
+
+
+  </script>
+</body>
+</html>

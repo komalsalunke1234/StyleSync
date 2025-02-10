@@ -1,0 +1,96 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf8f1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-box input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.login-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5e84b0;
+    color: white;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.hero-image img {
+    max-width: 350px;
+}
+
+/* Search Bar */
+.restyle-search input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+/* Back Button */
+.back-btn {
+    margin-top: 20px;
+}
+
+.back-btn button {
+    background-color: #ff7b00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
