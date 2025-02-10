@@ -1,42 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const uploadArea = document.getElementById("uploadArea");
     const fileInput = document.getElementById("fileInput");
     const uploadBtn = document.getElementById("uploadBtn");
+    const imageGallery = document.getElementById("imageGallery");
+    const categorySelect = document.getElementById("categorySelect");
 
-    // Click to Upload
     uploadArea.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", handleFileUpload);
+    uploadBtn.addEventListener("click", handleFileUpload);
 
-    // Drag & Drop Upload
-    uploadArea.addEventListener("dragover", (event) => {
-        event.preventDefault();
-        uploadArea.style.backgroundColor = "#dbe3ff";
-    });
+    function handleFileUpload(event) {
+        const files = fileInput.files;
+        if (files.length === 0) return;
 
-    uploadArea.addEventListener("dragleave", () => {
-        uploadArea.style.backgroundColor = "#eaf0ff";
-    });
+        const formData = new FormData();
+        formData.append("image", files[0]);
+        formData.append("category", categorySelect.value);
 
-    uploadArea.addEventListener("drop", (event) => {
-        event.preventDefault();
-        fileInput.files = event.dataTransfer.files;
-        uploadArea.style.backgroundColor = "#eaf0ff";
-        alert("File uploaded: " + fileInput.files[0].name);
-    });
+        fetch("http://localhost:3000/upload", {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success:", data);
+            displayImage(URL.createObjectURL(files[0]));
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    }
 
-    // Upload Button Click
-    uploadBtn.addEventListener("click", () => {
-        if (fileInput.files.length > 0) {
-            alert("Uploading: " + fileInput.files[0].name);
-        } else {
-            alert("Please select a file to upload.");
-        }
-    });
-
-    // Navigation Buttons
-    document.getElementById("tryVirtually").addEventListener("click", () => alert("Redirecting to Virtual Try-On..."));
-    document.getElementById("checkCloset").addEventListener("click", () => alert("Opening Closet..."));
-    document.getElementById("recommendations").addEventListener("click", () => alert("Fetching Recommendations..."));
-    document.getElementById("backBtn").addEventListener("click", () => alert("Going Back..."));
+    function displayImage(imageUrl) {
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.classList.add("uploaded-image");
+        imageGallery.appendChild(img);
+    }
 });
-
-
